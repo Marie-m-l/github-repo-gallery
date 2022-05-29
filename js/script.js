@@ -31,6 +31,8 @@ const displayFetchedData = function (data) {
     </div>
     `;
     overview.append(div);
+
+    getRepoLs();
 };
 
 // async to fetch repos API
@@ -38,6 +40,8 @@ const getRepoLs = async function () {
     const fetchRepos = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
     const repoData = await fetchRepos.json();
     console.log(fetchRepos);
+
+    displayRepoInfo(fetchRepos);
 };
 
 // getRepoLs();
