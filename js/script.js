@@ -2,7 +2,7 @@
 const overview = document.querySelector(".overview");
 const username = "Marie-m-l";
 //ul where the repos from gitHub display
-const repoLs = document.querySelector("repo-list");
+const repoLs = document.querySelector(".repo-list");
 
 //fetch API json data
 const getUserInfo = async function () {
@@ -41,15 +41,15 @@ const getRepoLs = async function () {
     const repoData = await fetchRepos.json();
     console.log(fetchRepos);
 
-    displayRepoInfo(fetchRepos);
+    displayRepoInfo(repoData);
 };
 
-// getRepoLs();
+// getRepoLs(); *test*
 
 //display each repo
 const displayRepoInfo = function (repos) {
-    for (let repo of displayRepoInfo) {
-        const repoItem = create.createElement ("li");
+    for (let repo of repos) {
+        const repoItem = document.createElement ("li");
         repoItem.classList.add("repo");
         repoItem.innerHTML = `<h3>${repo.name}</h3>`;
 
