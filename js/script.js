@@ -3,6 +3,10 @@ const overview = document.querySelector(".overview");
 const username = "Marie-m-l";
 //ul where the repos from gitHub display
 const repoLs = document.querySelector(".repo-list");
+//selects section w/ repos class
+const selectReposClass = document.querySelector(".repos");
+//selects section w/ repo-data for individual repo data
+const selectRepoDataClass = document.querySelector(".repo-data");
 
 //fetch API json data
 const getUserInfo = async function () {
@@ -56,3 +60,13 @@ const displayRepoInfo = function (repos) {
         repoLs.append(repoItem);
     }
 };
+
+//click event for ul w/ class repo-list
+repoLs.addEventListener ("click" , function (e) {
+    // console.log(e); *test*
+    if (e. target.matches("h3")) {
+        const repoName = repoLs.innerText;
+        // console.log(repoName); *test*
+    }
+});
+
