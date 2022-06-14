@@ -77,8 +77,7 @@ const specificRepoInfo = async function (repoName) {
     const repoInfo = await fetchOneRepo.json();
     console.log(repoInfo);
     //to get the language data
-    //**check if the method in the solution is better than having full url as below */
-    const fetchLanguage = await fetch(`https://api.github.com/repos/${username}/${repoName}/languages`);
+    const fetchLanguage = await fetch(repoInfo.languages_url);
     const languageData = await fetchLanguage.json();
     console.log(languageData);
     //list of languages and loop through
@@ -101,8 +100,8 @@ const displaySpecificRepoInfo = function (repoInfo , languages) {
     const div = document.createElement("div");
     div.innerHTML = `
     <h3>Name: ${"name"}</h3>
-        <p>Description: ${"description"}</p>
-        <p>Default Branch: ${"main"}</p>
+        <p>Description: ${repoInfo.description}</p>
+        <p>Default Branch: ${repoInfo.default_branch}</p>
         <p>Languages: ${languages.join(" , ")}</p>
         <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
 
