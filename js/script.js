@@ -89,4 +89,22 @@ const specificRepoInfo = async function (repoName) {
         languages.push(language);
         console.log(languages);
     }
+    //call displaySpecificRepoInfo
+    displaySpecificRepoInfo(repoInfo, languages);
+};
+
+//display specific repo info
+const displaySpecificRepoInfo = function (repoInfo , languages) {
+    selectRepoDataClass.innerHTML = "";
+    selectRepoDataClass.classList.remove("hide");
+    selectReposClass.classList.add("hide");
+    const div = document.createElement("div");
+    div.innerHTML = `
+    <h3>Name: ${"name"}</h3>
+        <p>Description: ${"description"}</p>
+        <p>Default Branch: ${"main"}</p>
+        <p>Languages: ${languages.join(" , ")}</p>
+        <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
+
+    selectRepoDataClass.append(div);
 };
