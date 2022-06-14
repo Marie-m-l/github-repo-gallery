@@ -72,8 +72,14 @@ repoLs.addEventListener ("click" , function (e) {
 
 //async to get specific repo info
 const specificRepoInfo = async function (repoName) {
+    //when one repo is clicked
     const fetchOneRepo = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
     const repoInfo = await fetchOneRepo.json();
     console.log(repoInfo);
-    const fetchLanguage = await fetch(``)
+    //to get the language data
+    const fetchLanguage = await fetch(`https://api.github.com/repos/${username}/${repoName}/languages`);
+    const languageData = await fetchLanguage.json();
+    console.log(languageData);
+
+    
 };
