@@ -62,6 +62,8 @@ const displayRepoInfo = function (repos) {
         repoItem.innerHTML = `<h3>${repo.name}</h3>`;
 
         repoLs.append(repoItem);
+        //show filterInput
+        filterInput.classList.remove("hide");
     }
 };
 
