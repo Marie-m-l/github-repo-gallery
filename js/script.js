@@ -7,6 +7,10 @@ const repoLs = document.querySelector(".repo-list");
 const selectReposClass = document.querySelector(".repos");
 //selects section w/ repo-data for individual repo data
 const selectRepoDataClass = document.querySelector(".repo-data");
+//selects the button to return to repo gallery
+const backToGalleryButton = document.querySelector(".view-repos");
+//selects the input w/ the search by name placeholder
+const filterInput = document.querySelector(".filter-repos");
 
 //fetch API json data
 const getUserInfo = async function () {
@@ -106,4 +110,14 @@ const displaySpecificRepoInfo = function (repoInfo , languages) {
         <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
 
     selectRepoDataClass.append(div);
+
+    backToGalleryButton.classList.remove("hide");
 };
+
+//click event to back to repo gallery button
+backToGalleryButton.addEventListener("click", function () {
+    //hide single repo data 4 repoLs display
+    selectRepoDataClass.classList.add("hide");
+    selectReposClass.classList.remove("hide");
+    backToGalleryButton.classList.add("hide");
+});
