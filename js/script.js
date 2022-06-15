@@ -123,3 +123,24 @@ backToGalleryButton.addEventListener("click", function () {
     selectReposClass.classList.remove("hide");
     backToGalleryButton.classList.add("hide");
 });
+
+//dynamic search /  input event for repo search
+filterInput.addEventListener("input", function (e) {
+    //capture value of search txt
+    const searchText =  e.target.value;
+    // console.log(e); *test*
+    const repos = document.querySelectorAll(".repo");
+    //convert string to lowercase
+    const searchLowerCaseValue = searchText.toLowerCase();
+
+    //loop through ea repo w/i repos element
+    for (const repo of repos) {
+        const lowerCaseValueInput = repo.innerText.toLowerCase();
+        if (lowerCaseValueInput.includes(searchLowerCaseValue)) {
+            repo.classList.remove("hide");
+        } else {
+            repo.classList.add("hide");
+        }
+        // console.log(e); *test*
+    };
+});
