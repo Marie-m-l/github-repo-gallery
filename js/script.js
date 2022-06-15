@@ -54,7 +54,7 @@ const getRepoLs = async function () {
 
 // getRepoLs(); *test*
 
-//display each repo
+//display each repo of repoLs
 const displayRepoInfo = function (repos) {
     for (let repo of repos) {
         const repoItem = document.createElement ("li");
